@@ -1,7 +1,8 @@
-1. add nice 404
-2 check if need to url in separate file
-3. add nice icon
-4 add color schemas dark/light
-5. add language
-6. switch metric imperial
-7 ERROR handling
+1. Add nice 404.
+2  Check if need to url in separate file.
+3. Add nice icon - Added something, we can make different ones for us later.
+4  Add color schemas dark/light.
+5. Add language - can delete this because they want only english.
+6. Switch metric/imperial.
+7. ERROR handling.
+8. Search - search is basically working - need to send data to wherever we want/need it.
