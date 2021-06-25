@@ -20,17 +20,14 @@ export default {
       'doneTodosCount',
     ]),
     ...mapActions([
-      'increment', // map `this.increment()` to `this.$store.dispatch('increment')`
+      'main/getMainLocationData', // map `this.increment()` to `this.$store.dispatch('increment')`
 
-      // `mapActions` also supports payloads:
-      'incrementBy' // map `this.incrementBy(amount)` to `this.$store.dispatch('incrementBy', amount)`
     ]),
 
   },
   mounted() {
-    this.$http.get('https://jsonplaceholder.typicode.com/todos/1').then(data=>{
-      console.log(data)
-    })
+    this.$store.dispatch('main/getMainLocationData')
+    this.$store.dispatch('main/getMainLocationDataFiveDays')
   }
 }
 </script>

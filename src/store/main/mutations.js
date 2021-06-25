@@ -1,3 +1,6 @@
-export const setTaskDictionary = (state, payload) => {
-    state.taskDictionaries.general = payload;
+export const setCurrentLocationData = (state, payload) => {
+    state.currentLocationData.single = payload;
+};
+export const setCurrentLocationDataFiveDays = (state, payload) => {
+    state.currentLocationData.fiveDays = payload;
 };
