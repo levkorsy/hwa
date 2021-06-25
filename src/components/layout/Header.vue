@@ -1,5 +1,5 @@
 <template>
-<div>Header
+<div>
 <Navbar/>
 </div>
 </template>

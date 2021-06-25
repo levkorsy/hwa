@@ -1,18 +1,7 @@
 <template>
   <div class="container">
     <div class="row">
-      <div class="col">
-        <label for="exampleDataList" class="form-label">Search</label>
-        <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type to search...">
-        <datalist id="datalistOptions">
-          <option value="San Francisco"/>
-          <option value="New York"/>
-          <option value="Seattle"/>
-          <option value="Los Angeles"/>
-          <option value="Chicago"/>
-        </datalist>
-      </div>
-
+      <search-component></search-component>
     </div>
   </div>
 
@@ -20,9 +9,12 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-
+import SearchComponent from "../search/SearchComponent";
 export default {
   name: "Home",
+  components:{
+    SearchComponent
+  },
   computed: {
     ...mapGetters([
       'doneTodosCount',
