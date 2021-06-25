@@ -3,6 +3,10 @@
 ## Project setup
 ```
 npm install
+
+Run cp .env.example .env
+Enter your AccuWeather API key in the .env file
+
 ```
 
 
@@ -10,8 +14,6 @@ npm install
 ```
 npm run serve
 ```
-### Configuration
-* Make sure to enter your AccuWeather API key
 
 ### Compiles and minifies for production
 ```
