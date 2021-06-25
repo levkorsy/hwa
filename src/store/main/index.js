@@ -21,8 +21,8 @@ export default {
     mutations,
 
     getters: {
-        getUrl: state => {
-            return state.url;
+        getFiveDays: state => {
+            return state.currentLocationData.fiveDays;
         },
 
 

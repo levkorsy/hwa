@@ -1,7 +1,7 @@
 <template>
   <div class="col">
     <label for="exampleDataList" class="form-label">Search</label>
-    <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type to search..." v-model="search_query">
+    <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Please start entering a city name, e.g: London, New-York, Prague etc..." v-model="search_query">
     <datalist id="datalistOptions">
       <option v-for="(place, index) in searchResults" :value="place.name" :key="index"/>
     </datalist>

@@ -2,6 +2,7 @@
   <div class="container">
     <div class="row">
       <search-component></search-component>
+      <current-location-container/>
     </div>
   </div>
 
@@ -10,9 +11,11 @@
 <script>
 import { mapGetters, mapActions } from 'vuex'
 import SearchComponent from "../search/SearchComponent";
+import CurrentLocationContainer from "./currentLocation/CurrentLocationContainer";
 export default {
   name: "Home",
   components:{
+    CurrentLocationContainer,
     SearchComponent
   },
   computed: {
