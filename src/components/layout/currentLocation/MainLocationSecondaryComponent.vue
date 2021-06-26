@@ -1,5 +1,5 @@
 <template>
-<div>
+<div style="border: 1px solid">
   <div class="day-title">{{ dayOfWeek }}</div>
   <div class="date">{{ dateFormatted }}</div>
   <div class="temperature">{{temperature}}</div>

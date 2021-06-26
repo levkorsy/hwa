@@ -38,7 +38,7 @@ export default {
 
 .wr {
   height: 40%;
-  border: 1px solid;
+  /*border: 1px solid;*/
   display: flex;
   justify-content: space-around;
 }
@@ -46,5 +46,7 @@ export default {
 .wr1 {
   height: 60%;
   border: 1px solid;
+  /*display: flex;*/
+  /*justify-content: space-around;*/
 }
 </style>
