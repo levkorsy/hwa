@@ -5,6 +5,7 @@
   <div class="temperature">{{temperature}}</div>
   <div class="condition">{{ condition }}</div>
   <icon-component />
+  <div>{{ checkIfTodayOrTomorrow }}</div>
 </div>
 </template>
 
@@ -32,6 +33,11 @@ export default {
     },
     condition(){
       return this.item.Night.IconPhrase
+    },
+    checkIfTodayOrTomorrow(){
+      if(moment(this.item.Date).isSame(moment(), 'day')) return 'today'
+      if(moment(this.item.Date).isSame(moment().add(1, 'day'), 'day')) return 'tomorrow'
+      return ''
     }
   }
 }
