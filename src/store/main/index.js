@@ -14,7 +14,9 @@ export default {
             single:[],
             fiveDays:{}
         },
-        language: 'en-us'
+        language: 'en-us',
+        favorites:[],
+        favoritesData:[],
     },
 
     actions,

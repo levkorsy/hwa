@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import { mapActions } from 'vuex'
 import SearchComponent from "../search/SearchComponent";
 import CurrentLocationContainer from "./currentLocation/CurrentLocationContainer";
 export default {
@@ -19,11 +19,11 @@ export default {
     SearchComponent
   },
   computed: {
-    ...mapGetters([
-      'doneTodosCount',
-    ]),
+    // ...mapGetters([
+    //   'doneTodosCount',
+    // ]),
     ...mapActions([
-      'main/getMainLocationData', // map `this.increment()` to `this.$store.dispatch('increment')`
+      'main/getMainLocationData',
 
     ]),
 

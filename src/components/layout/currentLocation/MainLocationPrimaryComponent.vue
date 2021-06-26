@@ -2,7 +2,7 @@
 <div style="display: flex; justify-content: space-around">
   <icon-component/>
   <selected-weather-display-info :item="currentLocationData.single"/>
-  <add-to-favorites-component/>
+  <add-to-favorites-component />
 </div>
 </template>
 
@@ -16,7 +16,8 @@ export default {
   name: "MainLocationPrimaryComponent",
   components: {AddToFavoritesComponent, SelectedWeatherDisplayInfo, IconComponent},
   computed: {
-    ...mapState("main", ["currentLocationData"])
+    ...mapState("main", ["currentLocationData"]),
+
   },
 }
 </script>

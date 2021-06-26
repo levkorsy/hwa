@@ -33,3 +33,21 @@ export async function getMainLocationDataFiveDays({ commit, state }) {
         console.log(e)
     }
 }
+export async function changeFavourites({ commit, state }, data) {
+    try {
+        let tempFavorites = state.favorites
+        //TODO make separate func that will return array
+        if(data){
+            !tempFavorites.includes(state.currentLocationId) && tempFavorites.push(state.currentLocationId)
+               tempFavorites.length && localStorage.setItem('favorites', tempFavorites)
+        }else{
+          tempFavorites = tempFavorites.filter(item=>  item !== state.currentLocationId)
+            !tempFavorites.length && localStorage.removeItem('favorites')
+            tempFavorites.length && localStorage.setItem('favorites', tempFavorites)
+        }
+            commit("main/setFavorites", tempFavorites, { root: true });
+
+      } catch (e) {
+        console.log(e)
+    }
+}
