@@ -4,7 +4,7 @@ import Vuex from 'vuex'
 import Router from "vue-router";
 import Home from "../components/layout/Home";
 import NotFound from "../components/layout/NotFound";
-import Favorites from "../components/layout/Favorites";
+import Favorites from "../components/layout/favorites/Favorites";
 import Axios from 'axios'
 
 Vue.use(Vuex)

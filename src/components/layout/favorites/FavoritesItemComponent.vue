@@ -1,12 +1,10 @@
 <template>
-  <div>
-    favorites
-  </div>
+
 </template>
 
 <script>
 export default {
-  name: "Favorites"
+  name: "FavoritesItemComponent"
 }
 </script>
 

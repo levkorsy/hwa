@@ -19,14 +19,9 @@ export default {
     SearchComponent
   },
   computed: {
-    // ...mapGetters([
-    //   'doneTodosCount',
-    // ]),
     ...mapActions([
       'main/getMainLocationData',
-
     ]),
-
   },
   mounted() {
     this.$store.dispatch('main/getMainLocationData')
