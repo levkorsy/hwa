@@ -1,5 +1,5 @@
 <template>
-
+<div>fav item</div>
 </template>
 
 <script>
