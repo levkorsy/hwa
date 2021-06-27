@@ -7,3 +7,10 @@ export const setCurrentLocationDataFiveDays = (state, payload) => {
 export const setFavorites = (state, payload) => {
     state.favorites = payload;
 };
+export const setCurrentLocationId = (state, payload) => {
+    state.currentLocationId = payload;
+};
+
+export const setSelectedSearchResult = (state, payload) => {
+    state.selectedSearchResult = payload;
+};

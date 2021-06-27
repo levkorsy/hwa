@@ -1,42 +1,96 @@
 <template>
-  <div class="col">
-    <label for="exampleDataList" class="form-label">Search</label>
-    <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Please start entering a city name, e.g: London, New-York, Prague etc..." v-model="search_query">
-    <datalist id="datalistOptions">
-      <option v-for="(place, index) in searchResults" :value="place.name" :key="index"/>
-    </datalist>
+  <div class="main-search-container">
+    <input class="search-input" id="locationsInput"
+           placeholder="Please enter a city name, e.g: London, New-York, Prague etc..." v-model.trim="location" type="search">
+      <div class="search-results-container" v-if="locations.length">
+        <ul class="search-results-list">
+          <li class="search-results-item" v-for="(location, index) in locations" :key="index" @click="selectLocation(location)">{{ location.name }}</li>
+        </ul>
+      </div>
   </div>
 </template>
 
 <script>
 import _ from "lodash";
 import axios from "axios";
+import {mapActions} from "vuex";
+
 export default {
   name: "SearchComponent",
 
-  data(){
-    return{
-      search_query: null,
+  data() {
+    return {
+      location: null,
       endpoint: process.env.VUE_APP_LOCATION_BASE_URL,
       apiKey: process.env.VUE_APP_API_KEY,
-      searchResults: []
+      locations: []
     }
   },
+  computed: {
+    ...mapActions([
+      'main/getMainLocationData',
+      'main/getCurrentLocationId',
+    ])
+  },
   watch: {
-    search_query: _.debounce(function() {
+    location: _.debounce(function () {
       axios.get(this.endpoint, {
-            params: {
-              apikey: this.apiKey,
-              q: this.search_query,
-            }
-          }).then((res) => {
-          this.searchResults = res.data.map(place => ({ id: place.Key, name: place.LocalizedName }))
+        params: {
+          apikey: this.apiKey,
+          q: this.location,
+        }
+      }).then((res) => {
+        if (res.data.length) {
+          this.locations = res.data.map(place => ({id: place.Key, name: place.LocalizedName, country: place.Country.LocalizedName}))
+        }
       })
     }, 500),
+  },
+
+  methods: {
+    selectLocation(place) {
+      this.$store.commit("main/setCurrentLocationId", parseInt(place.id));
+      this.$store.dispatch('main/getMainLocationData')
+      this.$store.commit("main/setSelectedSearchResult", place);
+      this.$store.dispatch('main/getMainLocationDataFiveDays')
+    }
   }
 }
 </script>
 
 <style scoped>
+.main-search-container {
+  margin: 1rem;
+}
+.search-input{
+  margin-bottom: 0.5rem;
+  width: 100%;
+  height: 40px;
 
+}
+.search-input:focus{
+  margin-bottom: 0.5rem;
+  outline: none
+}
+.search-results-container{
+  width: 100%;
+  border: medium solid rgba(193, 181, 181, 0.43);
+  border-radius: 3px;
+}
+.search-results-list{
+  list-style-type: none;
+  border-radius: 6px;
+  padding: 10px;
+  margin: 0;
+}
+.search-results-item{
+  font-size: 25px;
+  cursor: pointer;
+  margin-bottom: 3px;
+  border-radius: 3px;
+}
+.search-results-item:hover{
+  background-color: #242a32;
+  color: white;
+}
 </style>

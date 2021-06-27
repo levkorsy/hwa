@@ -17,6 +17,11 @@ export default {
         language: 'en-us',
         favorites:[],
         favoritesData:[],
+        selectedSearchResult: {
+            id: 215854,
+            name: 'Tel-Aviv',
+            country: 'Israel'
+        }
     },
 
     actions,
@@ -26,6 +31,8 @@ export default {
         // getFiveDays: state => {
         //     return state.currentLocationData.fiveDays;
         // },
+
+       searchResults: state =>  state.selectedSearchResult
 
 
     }

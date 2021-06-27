@@ -20,7 +20,7 @@ export default {
   methods:{
     changeFavorites(){
 
-      this.$store.dispatch('main/changeFavourites', event.target.checked)
+      this.$store.dispatch('main/changeFavorites', event.target.checked)
     }
   }
 }
