@@ -4,7 +4,13 @@
 
 <script>
 export default {
-  name: "FavoritesItemComponent"
+  name: "FavoritesItemComponent",
+  props:{
+    item:{
+      type: Object,
+      required: true
+    }
+  }
 }
 </script>
 

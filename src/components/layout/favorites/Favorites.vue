@@ -1,12 +1,12 @@
 <template>
   <div>
-<favorites-item-component/>
+<favorites-item-component v-for="(item, index) in favoritesData" :key="index" :item="item"/>
   </div>
 </template>
 
 <script>
 import FavoritesItemComponent from "./FavoritesItemComponent";
-import {mapActions} from "vuex";
+import {mapActions, mapState} from "vuex";
 export default {
   name: "Favorites",
   components: {FavoritesItemComponent},
@@ -14,6 +14,9 @@ export default {
     ...mapActions([
       'main/getMainLocationData',
     ]),
+
+      ...mapState("main", ["favoritesData"])
+
   },
   mounted() {
     this.$store.dispatch('main/getFavoritesData')
