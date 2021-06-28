@@ -96,3 +96,13 @@ export async function getCurrentLocationId({ commit, state }) {
         console.log(e)
     }
 }
+
+export async function getFavoritesFromLocalStorage({ commit }) {
+    try {
+        if(localStorage.getItem('favorites')){
+            commit("setFavorites", localStorage.getItem('favorites'));
+        }
+    } catch (e) {
+        console.log(e)
+    }
+}

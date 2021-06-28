@@ -1,26 +1,29 @@
 <template>
 <div>
-  <input type="checkbox" @change="changeFavorites($event)">
+  <input type="checkbox" @change="changeFavorites()" v-model="isFavorite">
 </div>
 </template>
 
 <script>
+import {mapGetters} from "vuex";
 export default {
   name: "AddToFavoritesComponent",
-  // props:{
-  //   id:{
-  //     type: Number,
-  //     required: true
-  //   }
-  // },
-  // ...mapActions([
-  //   'main/getMainLocationData', // map `this.increment()` to `this.$store.dispatch('increment')`
-  //
-  // ]),
+
+  computed:{
+    ...mapGetters("main", ["checkIfFavorite"])
+  },
+
+  mounted(){
+    console.log(this.$store.getters.checkIfFavorite)
+  },
+  data(){
+    return{
+      isFavorite: false
+    }
+  },
   methods:{
     changeFavorites(){
-
-      this.$store.dispatch('main/changeFavorites', event.target.checked)
+      this.$store.dispatch('main/changeFavorites', this.isFavorite)
     }
   }
 }

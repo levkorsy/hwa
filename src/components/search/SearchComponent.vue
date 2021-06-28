@@ -51,6 +51,8 @@ export default {
       this.$store.dispatch('main/getMainLocationData')
       this.$store.commit("main/setSelectedSearchResult", place);
       this.$store.dispatch('main/getMainLocationDataFiveDays')
+      this.locations = []
+
     }
   }
 }

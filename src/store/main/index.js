@@ -33,8 +33,9 @@ export default {
         //     return state.currentLocationData.fiveDays;
         // },
 
-       searchResults: state =>  state.selectedSearchResult
-
+       searchResults: state =>  state.selectedSearchResult,
+       checkIfFavorite: state =>   {
+          return  state.favorites.some(i => i.id == state.currentLocationId)}
 
     }
 };
