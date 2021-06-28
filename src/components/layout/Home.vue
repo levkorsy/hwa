@@ -9,7 +9,6 @@
 </template>
 
 <script>
-// import { mapActions } from 'vuex'
 import SearchComponent from "../search/SearchComponent";
 import CurrentLocationContainer from "./currentLocation/CurrentLocationContainer";
 export default {
@@ -18,11 +17,7 @@ export default {
     CurrentLocationContainer,
     SearchComponent
   },
-  // computed: {
-  //   ...mapActions([
-  //     'main/getMainLocationData',
-  //   ]),
-  // },
+
   mounted() {
     this.$store.dispatch('main/getMainLocationData')
     this.$store.dispatch('main/getMainLocationDataFiveDays')

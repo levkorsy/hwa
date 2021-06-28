@@ -58,14 +58,20 @@
             >
               FAVORITES
             </router-link>
+            <div class="navbar-item">
+              <measure-units-switch/>
+            </div>
           </div>
+
     </div>
   </nav>
 </template>
 
 <script>
+import MeasureUnitsSwitch from "../layout/UI/MeasureUnitsSwitch";
 export default {
   name: "Navbar",
+  components: {MeasureUnitsSwitch},
 }
 </script>
 

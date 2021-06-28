@@ -22,7 +22,8 @@ export default {
             id: 215854,
             name: 'Tel-Aviv',
             country: 'Israel'
-        }
+        },
+        measureUnits:'Imperial'
     },
 
     actions,

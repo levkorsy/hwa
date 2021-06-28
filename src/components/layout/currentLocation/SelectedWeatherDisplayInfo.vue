@@ -26,7 +26,7 @@ export default {
     }
   },
   computed:{
-    ...mapState('main', ['selectedSearchResult']),
+    ...mapState('main', ['selectedSearchResult', 'measureUnits']),
     dayOfWeek(){
       return moment(this.item[0]?.LocalObservationDateTime).format('dddd');
     },
@@ -34,7 +34,7 @@ export default {
       return moment(this.item[0]?.LocalObservationDateTime).format('DD/MM/YYYY');
     },
     temperature(){
-      return `${this.item[0]?.Temperature.Metric.Value}°${this.item[0]?.Temperature.Metric.Unit}`;
+      return `${this.item[0]?.Temperature[this.measureUnits].Value}°${this.item[0]?.Temperature[this.measureUnits].Unit}`;
     },
     condition(){
       return this.item[0]?.WeatherText

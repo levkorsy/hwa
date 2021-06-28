@@ -17,3 +17,6 @@ export const setCurrentLocationId = (state, payload) => {
 export const setSelectedSearchResult = (state, payload) => {
     state.selectedSearchResult = payload;
 };
+export const setMeasureUnit = (state, payload) => {
+    state.measureUnits = payload;
+};

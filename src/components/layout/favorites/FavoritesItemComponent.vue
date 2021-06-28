@@ -1,12 +1,14 @@
 <template>
 <div>
   <div>{{ item.name }},{{ item.country }} </div>
-  <div>{{ item.Temperature.Metric.Value }} {{ item.Temperature.Metric.Unit }}°</div>
+  <div>{{ temperature }}°</div>
   <div>{{ item.WeatherText }}</div>
 </div>
 </template>
 
 <script>
+import {mapState} from "vuex";
+
 export default {
   name: "FavoritesItemComponent",
   props:{
@@ -14,7 +16,15 @@ export default {
       type: Object,
       required: true
     }
+  },
+  computed:{
+    ...mapState('main', ['measureUnits']),
+
+    temperature(){
+      return `${this.item.Temperature[this.measureUnits].Value}°${this.item.Temperature[this.measureUnits].Unit}`;
+    },
   }
+
 }
 </script>
 
