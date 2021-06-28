@@ -12,10 +12,6 @@ export default {
   computed:{
     ...mapGetters("main", ["checkIfFavorite"])
   },
-
-  mounted(){
-    console.log(this.$store.getters.checkIfFavorite)
-  },
   data(){
     return{
       isFavorite: false
@@ -24,6 +20,11 @@ export default {
   methods:{
     changeFavorites(){
       this.$store.dispatch('main/changeFavorites', this.isFavorite)
+    }
+  },
+  watch:{
+    checkIfFavorite(){
+      this.isFavorite = this.checkIfFavorite
     }
   }
 }
