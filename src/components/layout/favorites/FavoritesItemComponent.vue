@@ -1,9 +1,9 @@
 <template>
 <div class="column is-4 mt-1">
-  <div class="card">
+  <div class="card" @click="setMainLocation()">
     <div class="card-content">
       <p class="title">
-        {{ item.name }}, {{ item.country }}
+        {{ item.city }}, {{ item.country }}
       </p>
       <p class="subtitle">
         {{ temperature }}°
@@ -33,6 +33,11 @@ export default {
     temperature(){
       return `${this.item.Temperature[this.measureUnits].Value}°${this.item.Temperature[this.measureUnits].Unit}`;
     },
+  },
+  methods:{
+    setMainLocation(){
+      this.$store.dispatch('main/changeMainLocation', {id:this.item.id, name:this.item.city, country:this.item.country})
+    }
   }
 
 }
@@ -41,5 +46,8 @@ export default {
 <style scoped>
 .mt-1{
   margin-top: 1rem;
+}
+.card{
+  cursor: pointer;
 }
 </style>

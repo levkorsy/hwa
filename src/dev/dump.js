@@ -92,6 +92,7 @@ export const fiveDays = {
 export const favorites = [
     {
         "name": "Tel Aviv",
+        "id": 215854,
         "country": "Israel",
         "LocalObservationDateTime": "2021-06-25T14:56:00+03:00",
         "EpochTime": 1624622160,
@@ -109,6 +110,7 @@ export const favorites = [
     },
     {
         "name": "Tel Aviv",
+        "id": 215854,
         "country": "Israel",
         "LocalObservationDateTime": "2021-06-25T14:56:00+03:00",
         "EpochTime": 1624622160,
@@ -126,6 +128,7 @@ export const favorites = [
     },
     {
         "name": "Tel Aviv",
+        "id": 215854,
         "country": "Israel",
         "LocalObservationDateTime": "2021-06-25T14:56:00+03:00",
         "EpochTime": 1624622160,
@@ -141,7 +144,8 @@ export const favorites = [
         "MobileLink": "http://m.accuweather.com/en/il/tel-aviv/215854/current-weather/215854?lang=en-us",
         "Link": "http://www.accuweather.com/en/il/tel-aviv/215854/current-weather/215854?lang=en-us"
     },  {
-        "name": "Tel Aviv",
+        "name": "Ashkelon",
+        "id": 777777,
         "country": "Israel",
         "LocalObservationDateTime": "2021-06-25T14:56:00+03:00",
         "EpochTime": 1624622160,
