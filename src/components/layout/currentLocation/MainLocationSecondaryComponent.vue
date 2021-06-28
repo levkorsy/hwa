@@ -1,11 +1,28 @@
 <template>
-<div style="border: 1px solid">
-  <div class="day-title">{{ dayOfWeek }}</div>
-  <div class="date">{{ dateFormatted }}</div>
-  <div class="temperature">{{temperature}}</div>
-  <div class="condition">{{ condition }}</div>
-  <icon-component />
-  <div>{{ checkIfTodayOrTomorrow }}</div>
+  <div class="column is-2">
+    <div class="card">
+      <div class="card-content">
+        <p class="title is-4">
+          {{ dayOfWeek }}
+        </p>
+        <p class="subtitle">
+          {{ dateFormatted }}
+        </p>
+        <p class="subtitle">
+          {{temperature}}
+        </p>
+        <p class="subtitle">
+          {{ condition }}
+        </p>
+        <p class="subtitle">
+          <icon-component />
+        </p>
+
+        <p class="subtitle">
+          {{  checkIfTodayOrTomorrow  }}
+        </p>
+      </div>
+    </div>
 </div>
 </template>
 
@@ -67,5 +84,18 @@ export default {
 </script>
 
 <style scoped>
-
+@media screen and (min-width: 769px), print {
+  .column.is-2, .column.is-2-tablet {
+    flex: none;
+    width: 19.6%;
+  }
+}
+@media screen and (max-width: 769px), print {
+  .column.is-2, .column.is-2-tablet {
+      margin: 3rem;
+  }
+}
+.card-content{
+  height: 320px;
+}
 </style>

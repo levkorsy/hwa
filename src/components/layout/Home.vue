@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="row">
+    <div>
       <search-component></search-component>
       <current-location-container/>
     </div>

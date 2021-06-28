@@ -1,8 +1,18 @@
 <template>
-<div>
-  <div>{{ item.name }},{{ item.country }} </div>
-  <div>{{ temperature }}°</div>
-  <div>{{ item.WeatherText }}</div>
+<div class="column is-4 mt-1">
+  <div class="card">
+    <div class="card-content">
+      <p class="title">
+        {{ item.name }}, {{ item.country }}
+      </p>
+      <p class="subtitle">
+        {{ temperature }}°
+      </p>
+      <p class="subtitle">
+        {{ item.WeatherText }}
+      </p>
+    </div>
+  </div>
 </div>
 </template>
 
@@ -29,5 +39,7 @@ export default {
 </script>
 
 <style scoped>
-
+.mt-1{
+  margin-top: 1rem;
+}
 </style>
