@@ -21,7 +21,7 @@ export default {
   data() {
     return {
       location: null,
-      endpoint: process.env.VUE_APP_LOCATION_BASE_URL,
+      endpoint: process.env.VUE_APP_MAIN_URL,
       apiKey: process.env.VUE_APP_API_KEY,
       locations: []
     }
@@ -34,7 +34,7 @@ export default {
   },
   watch: {
     location: _.debounce(function () {
-      axios.get(this.endpoint, {
+      axios.get(this.endpoint + '/locations/v1/cities/autocomplete', {
         params: {
           apikey: this.apiKey,
           q: this.location,
