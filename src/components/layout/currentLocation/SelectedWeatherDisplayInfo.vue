@@ -3,8 +3,8 @@
   <div>
     <div>{{ dayOfWeek }}</div>
     <div>{{ dateFormatted }}</div>
-    <div>City name</div>
-    <div>Country</div>
+    <div>{{ selectedSearchResult.name }}</div>
+    <div>{{selectedSearchResult.country}}</div>
   </div>
   <div>
     <div>{{ condition }}</div>
@@ -15,6 +15,7 @@
 
 <script>
 import moment from "moment";
+import {mapState} from "vuex";
 
 export default {
   name: "SelectedWeatherDisplayInfo",
@@ -25,6 +26,7 @@ export default {
     }
   },
   computed:{
+    ...mapState('main', ['selectedSearchResult']),
     dayOfWeek(){
       return moment(this.item[0]?.LocalObservationDateTime).format('dddd');
     },
