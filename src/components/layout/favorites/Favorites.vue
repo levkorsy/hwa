@@ -1,6 +1,7 @@
 <template>
-  <div>
+  <div class="wrapper">
 <favorites-item-component v-for="(item, index) in favoritesData" :key="index" :item="item"/>
+<!--<favorites-item-component v-for="(item, index) in favoritesData" :key="index" :item="item"/>-->
   </div>
 </template>
 
@@ -25,5 +26,9 @@ export default {
 </script>
 
 <style scoped>
-
+.wrapper{
+  display: flex;
+  justify-content: space-around;
+  /*flex-wrap: nowrap;*/
+}
 </style>

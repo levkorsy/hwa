@@ -1,5 +1,9 @@
 <template>
-<div>fav item</div>
+<div>
+  <div>{{ item.name }},{{ item.country }} </div>
+  <div>{{ item.Temperature.Metric.Value }} {{ item.Temperature.Metric.Unit }}°</div>
+  <div>{{ item.WeatherText }}</div>
+</div>
 </template>
 
 <script>
