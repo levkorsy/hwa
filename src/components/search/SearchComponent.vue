@@ -13,7 +13,7 @@
 <script>
 import _ from "lodash";
 import axios from "axios";
-import {mapActions} from "vuex";
+import {mapActions, mapState} from "vuex";
 
 export default {
   name: "SearchComponent",
@@ -30,6 +30,9 @@ export default {
     ...mapActions([
       'main/getMainLocationData',
       'main/getCurrentLocationId',
+    ]),
+    ...mapState([
+      'main/searchUrl'
     ])
   },
   watch: {

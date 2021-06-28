@@ -7,6 +7,7 @@ export default {
     state: {
         urlSingle: '/currentconditions/v1/',
         urlFiveDays: '/forecasts/v1/daily/5day/',
+        searchUrl: '/locations/v1/cities/autocomplete',
         url: process.env.VUE_APP_MAIN_URL,
         apiKey: process.env.VUE_APP_API_KEY,
         currentLocationId: 215854,
