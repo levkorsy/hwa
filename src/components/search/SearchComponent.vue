@@ -27,17 +27,12 @@ export default {
     }
   },
   computed: {
-    ...mapActions([
-      'main/getMainLocationData',
-      'main/getCurrentLocationId',
-    ]),
-    ...mapState([
-      'main/searchUrl'
-    ])
+    ...mapActions("main", ['getMainLocationData', 'getCurrentLocationId']),
+    ...mapState('main', ['searchUrl'])
   },
   watch: {
     location: _.debounce(function () {
-      axios.get(this.endpoint + '/locations/v1/cities/autocomplete', {
+      axios.get(this.endpoint + this.searchUrl, {
         params: {
           apikey: this.apiKey,
           q: this.location,
