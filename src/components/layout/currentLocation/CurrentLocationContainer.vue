@@ -3,7 +3,7 @@
     <div class="wr1">
       <main-location-primary-component/>
     </div>
-    <div class="wr" v-if="currentLocationData">
+    <div class="columns" v-if="currentLocationData">
       <main-location-secondary-component v-for="(item, index ) in currentLocationData.fiveDays.DailyForecasts" :item="item" :key="index"/>
     </div>
   </div>
@@ -32,7 +32,6 @@ export default {
 <style scoped>
 .wrapper {
   width: 100%;
-  border: 1px solid;
   height: 66vh;
 }
 
@@ -45,7 +44,6 @@ export default {
 
 .wr1 {
   height: 60%;
-  border: 1px solid;
   /*display: flex;*/
   /*justify-content: space-around;*/
 }

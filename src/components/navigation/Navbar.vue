@@ -1,64 +1,39 @@
 <template>
-<!--  <nav class="navbar navbar-expand-lg navbar-light bg-light">-->
-<!--    <div class="container-fluid">-->
-<!--      <a class="navbar-brand" href="#">-->
-<!--        <img src="../../assets/logo.png" alt="4 seasons"  class="d-inline-block align-text-top"></a>-->
-<!--      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"-->
-<!--              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">-->
-<!--        <span class="navbar-toggler-icon"></span>-->
-<!--      </button>-->
-<!--      <div class="collapse navbar-collapse" id="navbarSupportedContent">-->
-<!--        <ul class="navbar-nav me-auto mb-2 mb-lg-0">-->
-<!--          <li class="nav-item">-->
-<!--            <router-link-->
-<!--                class="nav-link active"-->
-<!--                exact-->
-<!--                to="/"-->
-<!--            >-->
-<!--              Home-->
-<!--            </router-link>-->
-<!--          </li>-->
-<!--          <li class="nav-item">-->
-<!--            <router-link-->
-<!--                class="nav-link"-->
-<!--                exact-->
-<!--                to="/favorites"-->
-<!--            >-->
-<!--              Favorites-->
-<!--            </router-link>-->
-<!--          </li>-->
-
-<!--        </ul>-->
-
-<!--      </div>-->
-<!--    </div>-->
-<!--  </nav>-->
-  <nav class="navbar" role="navigation" aria-label="main navigation">
+  <nav aria-label="main navigation" class="navbar" role="navigation">
     <div class="navbar-brand nav-layout">
-                  <router-link
-                      class="navbar-item"
-                      exact
-                      to="/"
-                  >
-                    <img src="../../assets/logo.png" alt="4 seasons">
-                  </router-link>
+      <router-link
+          class="navbar-item"
+          exact
+          to="/"
+      >
+        <img alt="4 seasons" src="../../assets/logo.png">
+      </router-link>
 
-          <div class="navbar-item">
-            <router-link
-                class="navbar-item"
-                exact
-                to="/"
-            >
-              HOME
-            </router-link>
-            <router-link
+      <div class="navbar-item">
+        <div class="tabs is-boxed">
+          <ul>
+            <li :class="$route.name === 'Main' ? 'is-active' : ''">
+              <router-link
+                  class="navbar-item"
+                  exact
+                  to="/"
+              >
+                <h5 class="title is-5">HOME</h5>
+              </router-link>
+            </li>
+            <li :class="$route.name === 'Favorites' ? 'is-active' : ''">
+              <router-link
                 class="navbar-item"
                 exact
                 to="/favorites"
             >
-              FAVORITES
+              <h5 class="title is-5">FAVORITES</h5>
             </router-link>
-          </div>
+            </li>
+          </ul>
+        </div>
+
+      </div>
     </div>
   </nav>
 </template>
@@ -70,10 +45,14 @@ export default {
 </script>
 
 <style scoped>
+.navbar{
+  margin: 0.5rem;
+}
 .navbar-item img {
   max-height: 3.75rem;
 }
-.nav-layout{
+
+.nav-layout {
   width: 100%;
   justify-content: space-between;
 }

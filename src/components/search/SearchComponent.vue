@@ -66,7 +66,8 @@ export default {
   margin-bottom: 0.5rem;
   width: 100%;
   height: 40px;
-
+  border: 2px solid black;
+  text-indent: 10px;
 }
 .search-input:focus{
   margin-bottom: 0.5rem;

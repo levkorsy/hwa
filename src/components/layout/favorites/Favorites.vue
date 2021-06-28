@@ -1,7 +1,6 @@
 <template>
-  <div class="wrapper">
-<favorites-item-component v-for="(item, index) in favoritesData" :key="index" :item="item"/>
-<!--<favorites-item-component v-for="(item, index) in favoritesData" :key="index" :item="item"/>-->
+  <div class="columns is-multiline is-mobile">
+     <favorites-item-component v-for="(item, index) in favoritesData" :key="index" :item="item"/>
   </div>
 </template>
 
