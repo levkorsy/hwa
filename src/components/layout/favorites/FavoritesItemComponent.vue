@@ -2,8 +2,8 @@
 <div class="column is-4 mt-1">
   <div class="card" @click="setMainLocation()">
     <div class="card-content">
-      <p class="title">
-        {{ item.city }}, {{ item.country }}
+      <p class="title is-4">
+        {{ item.name }}, {{ item.country }}
       </p>
       <p class="subtitle">
         {{ temperature }}°
@@ -31,7 +31,7 @@ export default {
     ...mapState('main', ['measureUnits']),
 
     temperature(){
-      return `${this.item.Temperature[this.measureUnits].Value}°${this.item.Temperature[this.measureUnits].Unit}`;
+      return `${this.item.Temperature[this.measureUnits].Value} ${this.item.Temperature[this.measureUnits].Unit}`;
     },
   },
   methods:{

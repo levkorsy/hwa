@@ -1,9 +1,7 @@
 <template>
   <div class="container">
-    <div>
       <search-component></search-component>
       <current-location-container/>
-    </div>
   </div>
 
 </template>

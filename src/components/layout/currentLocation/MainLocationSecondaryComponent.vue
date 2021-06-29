@@ -3,7 +3,7 @@
     <div class="card">
       <div class="card-content">
         <p class="title is-4">
-          {{ dayOfWeek }}
+          <a :href="item.Link" class="is-link">{{ dayOfWeek }} <span class="is-today-or-tomorrow">{{  checkIfTodayOrTomorrow  }}</span></a>
         </p>
         <p class="subtitle">
           {{ dateFormatted }}
@@ -16,10 +16,6 @@
         </p>
         <p class="subtitle">
           <icon-component />
-        </p>
-
-        <p class="subtitle">
-          {{  checkIfTodayOrTomorrow  }}
         </p>
       </div>
     </div>
@@ -56,8 +52,8 @@ export default {
       return this.item.Night.IconPhrase
     },
     checkIfTodayOrTomorrow(){
-      if(moment(this.item.Date).isSame(moment(), 'day')) return 'today'
-      if(moment(this.item.Date).isSame(moment().add(1, 'day'), 'day')) return 'tomorrow'
+      if(moment(this.item.Date).isSame(moment(), 'day')) return '(Today)'
+      if(moment(this.item.Date).isSame(moment().add(1, 'day'), 'day')) return '(Tomorrow)'
       return ''
     }
   },
@@ -97,5 +93,11 @@ export default {
 }
 .card-content{
   height: 320px;
+}
+.card{
+  box-shadow: 0 0.5em 1em -0.125em rgb(0 0 0), -1px -2px 0 1px rgb(10 10 10 /2%);
+}
+.is-today-or-tomorrow{
+  font-size: 13px;
 }
 </style>
