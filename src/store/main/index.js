@@ -23,7 +23,9 @@ export default {
             name: 'Tel-Aviv',
             country: 'Israel'
         },
-        measureUnits:'Imperial'
+        measureUnits:'Imperial',
+        geoLocation: null,
+        errorMsg: null
     },
 
     actions,

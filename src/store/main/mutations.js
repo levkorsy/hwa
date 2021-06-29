@@ -20,3 +20,9 @@ export const setSelectedSearchResult = (state, payload) => {
 export const setMeasureUnit = (state, payload) => {
     state.measureUnits = payload;
 };
+export const setGeoLocation = (state, payload) => {
+    state.geoLocation = payload;
+};
+export const setErrorMsg = (state, payload) => {
+    state.errorMsg = payload;
+};
