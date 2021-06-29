@@ -80,15 +80,15 @@ export default {
 </script>
 
 <style scoped>
-@media screen and (min-width: 769px), print {
+@media screen and (min-width: 951px), print {
   .column.is-2, .column.is-2-tablet {
     flex: none;
     width: 19.6%;
   }
 }
-@media screen and (max-width: 769px), print {
+@media screen and (max-width: 950px), print {
   .column.is-2, .column.is-2-tablet {
-      margin: 3rem;
+      margin: 2rem;
   }
 }
 .card-content{
