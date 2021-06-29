@@ -1,6 +1,6 @@
 <template>
   <div class="main-search-container">
-    <input class="search-input" id="locationsInput"
+    <input class="search-input" id="locationsInput" oninput="this.value=this.value.replace(/[^A-Za-z\s]/g,'');"
            placeholder="Please enter a city name, e.g: London, New-York, Prague etc..." v-model.trim="location" type="search">
       <div class="search-results-container" v-if="locations.length">
         <ul class="search-results-list">
