@@ -1,8 +1,8 @@
 <template>
-  <div class="column is-2">
+  <div class="column">
     <div class="card">
       <div class="card-content">
-        <p class="title is-4">
+        <p class="subtitle">
           <a :href="item.Link" class="is-link">{{ dayOfWeek }} <span class="is-today-or-tomorrow">{{  checkIfTodayOrTomorrow  }}</span></a>
         </p>
         <p class="subtitle">
@@ -81,19 +81,21 @@ export default {
 
 <style scoped>
 @media screen and (min-width: 951px) {
-  .column.is-2, .column.is-2-tablet {
-    flex: none;
-    width: 19.6%;
+  .card-content{
+    height: 320px;
   }
 }
 @media screen and (max-width: 950px) {
-  .column.is-2, .column.is-2-tablet {
-      margin: 2rem;
+  .card-content{
+    display: flex;
+    padding: 0.3rem;
   }
+  .card-content p{
+    font-size: 15px;
+  }
+
 }
-.card-content{
-  height: 320px;
-}
+
 .card{
   box-shadow: 0 0.5em 1em -0.125em rgb(0 0 0), -1px -2px 0 1px rgb(10 10 10 /2%);
 }

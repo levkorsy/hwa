@@ -1,17 +1,7 @@
 <template>
-  <!--  <div>-->
-  <!--    <label class="radio">-->
-  <!--      <input type="radio" id="Metric" value="Metric" class="checkbox" v-model="unit" @change="setMeasureUnit">-->
-  <!--      <label for="Metric">Metric</label>-->
-  <!--    </label>-->
-  <!--    <br>-->
-  <!--    <input type="radio" id="two" value="Imperial" v-model="unit" @change="setMeasureUnit">-->
-  <!--    <label for="two">Imperial</label>-->
-  <!--    <br>-->
-  <!--  </div>-->
   <label class="switch">
     <input class="switch-input" type="checkbox"  v-model="unit" @change="setMeasureUnit"/>
-    <span class="switch-label" data-on="°C" data-off="°F"></span>
+    <span class="switch-label" data-on="°F" data-off="°C"></span>
     <span class="switch-handle"></span>
   </label>
 </template>

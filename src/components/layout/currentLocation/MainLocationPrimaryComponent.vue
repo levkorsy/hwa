@@ -1,5 +1,5 @@
 <template>
-<div style="display: flex; justify-content: space-around">
+<div class="current-location-container">
   <icon-component/>
   <selected-weather-display-info :item="currentLocationData.single"/>
   <add-to-favorites-component />
@@ -17,11 +17,14 @@ export default {
   components: {AddToFavoritesComponent, SelectedWeatherDisplayInfo, IconComponent},
   computed: {
     ...mapState("main", ["currentLocationData"]),
-
   },
 }
 </script>
 
 <style scoped>
-
+.current-location-container{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 90%;}
 </style>

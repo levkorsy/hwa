@@ -1,15 +1,21 @@
 <template>
 <div class="wrapper">
-  <div>
-    <div>{{ dayOfWeek }}</div>
-    <div>{{ dateFormatted }}</div>
-    <div>{{ selectedSearchResult.name }}</div>
-    <div>{{selectedSearchResult.country}}</div>
-  </div>
-  <div>
-    <div>{{ condition }}</div>
-    <div>{{ temperature }}</div></div>
 
+  <div class="card">
+    <header class="card-header">
+      <p class="card-header-title" style="justify-content: center;">
+        {{ selectedSearchResult.name }}, <br/>
+        {{selectedSearchResult.country}}
+      </p>
+    </header>
+    <div class="card-content">
+      <div class="content">
+        <b>{{ condition }} {{ temperature }}</b>
+        <br>
+        <b>{{ dayOfWeek }}, {{ dateFormatted }}</b>
+      </div>
+    </div>
+  </div>
 </div>
 </template>
 
@@ -47,5 +53,10 @@ export default {
 .wrapper{
   display: flex;
   justify-content: space-between;
+}
+.card{
+  background-color: #a9efe5;
+  border: 2px solid black;
+  border-radius: 6px; box-shadow: 0 0.5em 1em -0.125em rgb(0 0 0), -1px -2px 0 1px rgb(10 10 10 / 2%);
 }
 </style>

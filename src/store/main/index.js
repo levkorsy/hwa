@@ -6,7 +6,7 @@ export default {
 
     state: {
         urlSingle: '/currentconditions/v1/',
-        urlFiveDays: '/forecasts/v1/daily/5day/',
+        urlFiveDays: '/forecasts/v1/daily/5day',
         searchUrl: '/locations/v1/cities/autocomplete',
         url: process.env.VUE_APP_MAIN_URL,
         apiKey: process.env.VUE_APP_API_KEY,
@@ -32,10 +32,6 @@ export default {
     mutations,
 
     getters: {
-        // getFiveDays: state => {
-        //     return state.currentLocationData.fiveDays;
-        // },
-
        searchResults: state =>  state.selectedSearchResult,
        checkIfFavorite: state =>   {
           return  state.favorites.some(i => i.id == state.currentLocationId)}

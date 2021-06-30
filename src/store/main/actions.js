@@ -1,4 +1,4 @@
-// import axios from 'axios'
+import axios from 'axios'
 import router from '../../router/index'
 import {single} from "../../dev/dump"; ////ONLY for dev
 import {fiveDays} from "../../dev/dump"; ////ONLY for dev
@@ -36,26 +36,26 @@ export async function getFavoritesData({ commit, state }) {
             commit("main/setFavoritesData", favorites, { root: true })
         }, 1000)
 
-        // if(localStorage.favorites){
-        //     let tempFavData = []
-        //     console.log(typeof localStorage.favorites,commit, state)
-        //     JSON.parse(localStorage.favorites).forEach(item=> {
-        //         let url = `${state.url}${state.urlSingle}/${item.id}?apikey=${state.apiKey}&language=${state.language}&metric=true`
-        //         axios.get(`${url}`).then(({data})=>{
-        //             console.log(data, 'data')
-        //             if(data.length){
-        //                 let tempObj = data[0]
-        //                 tempObj.city = item.name
-        //                 tempObj.country = item.country
-        //                 tempObj.id = item.id
-        //                 console.log(tempObj, "tenpobj")
-        //                 tempFavData.push(tempObj)
-        //             }
-        //
-        //         })
-        //     })
-        //     commit("main/setFavoritesData", tempFavData, { root: true });
-        // }
+        if(localStorage.favorites){
+            let tempFavData = []
+            console.log(typeof localStorage.favorites,commit, state)
+            JSON.parse(localStorage.favorites).forEach(item=> {
+                let url = `${state.url}${state.urlSingle}/${item.id}?apikey=${state.apiKey}&language=${state.language}&metric=true`
+                axios.get(`${url}`).then(({data})=>{
+                    console.log(data, 'data')
+                    if(data.length){
+                        let tempObj = data[0]
+                        tempObj.city = item.name
+                        tempObj.country = item.country
+                        tempObj.id = item.id
+                        console.log(tempObj, "tenpobj")
+                        tempFavData.push(tempObj)
+                    }
+
+                })
+            })
+            commit("main/setFavoritesData", tempFavData, { root: true });
+        }
     } catch (e) {
         console.log(e)
     }
@@ -69,9 +69,9 @@ export async function getMainLocationDataFiveDays({ commit, state }) {
             console.log(state)
             commit("main/setCurrentLocationDataFiveDays", fiveDays, { root: true });
         }, 1000)
-        // let url = `${state.url}${state.urlFiveDays}/${state.currentLocationId}?apikey=${state.apiKey}&language=${state.language}&details=true`
-        //
-        // // let url = `${state.url}${state.urlFiveDays}${state.currentLocationId}?apikey=${state.apiKey}&language=${state.language}&metric=true`;
+        // let url = `${state.url}${state.urlFiveDays}/${state.currentLocationId}?apikey=${state.apiKey}&language=${state.language}&details=true&metric=true`
+
+        // let url = `${state.url}${state.urlFiveDays}/${state.currentLocationId}?apikey=${state.apiKey}&language=${state.language}&metric=true`;
         // axios.get(`${url}`).then(data=>{
         //     commit("main/setCurrentLocationDataFiveDays", data.data, { root: true });
         // })
@@ -84,11 +84,9 @@ export async function changeFavorites({ commit, state }, data) {
         let tempFavorites = state.favorites
         //TODO make separate func that will return array
         if(data){
-            console.log('in')
             !tempFavorites.some(i => i.id == state.currentLocationId) && tempFavorites.push({id:state.currentLocationId, name: state.selectedSearchResult.name, country: state.selectedSearchResult.country})
                tempFavorites.length && localStorage.setItem('favorites', JSON.stringify(tempFavorites))
         }else{
-            console.log('out')
           tempFavorites = tempFavorites.filter(item=>  item.id !== state.currentLocationId)
             !tempFavorites.length && localStorage.removeItem('favorites')
             tempFavorites.length && localStorage.setItem('favorites',  JSON.stringify(tempFavorites))
@@ -138,7 +136,9 @@ export async function getFavoritesFromLocalStorage({ commit }) {
 export async function getGeoLocation(commit) {
     try {
             if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition((data) => commit("setGeoLocation", data), (err) => commit("setErrorMsg", err));
+                navigator.geolocation.
+                getCurrentPosition((data) => commit("setGeoLocation", data),
+                    (err) => commit("setErrorMsg", err));
 
             } else {
                 commit("setErrorMsg", "Geolocation is not supported by this browser.") ;

@@ -1,7 +1,7 @@
 <template>
   <div class="main-search-container">
     <input class="search-input" id="locationsInput" oninput="this.value=this.value.replace(/[^A-Za-z\s]/g,'');"
-           placeholder="Please enter a city name, e.g: London, New-York, Prague etc..." v-model.trim="location" type="search">
+           placeholder="Please enter a location name..." v-model.trim="location" type="search">
       <div class="search-results-container" v-if="locations.length">
         <ul class="search-results-list">
           <li class="search-results-item" v-for="(location, index) in locations" :key="index" @click="selectLocation(location)">{{ location.name }}</li>

@@ -1,6 +1,7 @@
 <template>
 <div>
-  <input type="checkbox" @change="changeFavorites()" v-model="isFavorite">
+  <i class="far fa-heart fa-4x not-favorite" v-if="!isFavorite" @click="isFavorite = true"></i>
+  <i class="fas fa-heart fa-4x is-favorite" v-if="isFavorite" @click="isFavorite = false"></i>
 </div>
 </template>
 
@@ -18,18 +19,27 @@ export default {
     }
   },
   methods:{
-    changeFavorites(){
-      this.$store.dispatch('main/changeFavorites', this.isFavorite)
-    }
+    // changeFavorites(){
+    //   this.$store.dispatch('main/changeFavorites', this.isFavorite)
+    // }
   },
   watch:{
     checkIfFavorite(){
       this.isFavorite = this.checkIfFavorite
     }
+  },
+  isFavorite(){
+    this.$store.dispatch('main/changeFavorites', this.isFavorite)
   }
 }
 </script>
 
 <style scoped>
-
+.is-favorite{
+  cursor: pointer;
+  color: red;
+}
+.not-favorite{
+  cursor: pointer;
+}
 </style>

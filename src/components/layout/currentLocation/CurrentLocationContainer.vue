@@ -3,7 +3,7 @@
     <div class="wr1">
       <main-location-primary-component/>
     </div>
-    <div class="columns" v-if="currentLocationData">
+    <div class="columns is-desktop" v-if="currentLocationData" style="margin: 0.1rem">
       <main-location-secondary-component v-for="(item, index ) in currentLocationData.fiveDays.DailyForecasts" :item="item" :key="index"/>
     </div>
   </div>
@@ -19,12 +19,6 @@ export default {
   components: {MainLocationSecondaryComponent, MainLocationPrimaryComponent},
   computed: {
     ...mapState("main", ["currentLocationData"])
-  },
-  mounted() {
-    setTimeout(()=>{
-      console.log(this.currentLocationData, 'from getter')
-    }, 2000)
-
   }
 }
 </script>
@@ -32,19 +26,12 @@ export default {
 <style scoped>
 .wrapper {
   width: 100%;
-  height: 66vh;
-}
-
-.wr {
-  height: 40%;
-  /*border: 1px solid;*/
-  display: flex;
-  justify-content: space-around;
+  height: 70vh;
+  border: 2px solid black;
+  border-radius: 6px;
 }
 
 .wr1 {
-  height: 60%;
-  /*display: flex;*/
-  /*justify-content: space-around;*/
+  height: 40%;
 }
 </style>

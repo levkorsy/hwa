@@ -18,9 +18,9 @@ export default {
 methods:{
     async fetchData(){
      // await this.$store.dispatch('main/getGeoLocation')//TODO check opportunity to put this dispatch in another place
-      this.$store.dispatch('main/getMainLocationData')
-      this.$store.dispatch('main/getMainLocationDataFiveDays')
-      this.$store.dispatch('main/getFavoritesFromLocalStorage')
+      await this.$store.dispatch('main/getMainLocationData')
+      await this.$store.dispatch('main/getMainLocationDataFiveDays')
+      await this.$store.dispatch('main/getFavoritesFromLocalStorage')
     }
 },
   mounted() {
