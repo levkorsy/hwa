@@ -1,6 +1,14 @@
 <template>
-  <div class="columns is-multiline is-mobile">
-     <favorites-item-component v-for="(item, index) in favoritesData" :key="index" :item="item"/>
+  <div class="fav-container">
+     <div class="columns is-multiline is-mobile" v-if="favoritesData.length">
+       <favorites-item-component v-for="(item, index) in favoritesData" :key="index" :item="item" />
+     </div>
+    <div v-if="!favoritesData.length">
+      <i class="fas fa-heart-broken"></i>
+      <p class="tile">
+        No favorites yet
+      </p>
+    </div>
   </div>
 </template>
 
@@ -25,9 +33,7 @@ export default {
 </script>
 
 <style scoped>
-.wrapper{
-  display: flex;
-  justify-content: space-around;
-  /*flex-wrap: nowrap;*/
+.fav-container{
+  margin-bottom: auto;
 }
 </style>

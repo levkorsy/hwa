@@ -1,7 +1,7 @@
 <template>
 <div>
-  <i class="far fa-heart fa-4x not-favorite" v-if="!isFavorite" @click="isFavorite = true"></i>
-  <i class="fas fa-heart fa-4x is-favorite" v-if="isFavorite" @click="isFavorite = false"></i>
+  <i class="far fa-heart fa-2x not-favorite" v-if="!isFavorite" @click="isFavorite = true"></i>
+  <i class="fas fa-heart fa-2x is-favorite" v-if="isFavorite" @click="isFavorite = false"></i>
 </div>
 </template>
 
@@ -18,19 +18,16 @@ export default {
       isFavorite: false
     }
   },
-  methods:{
-    // changeFavorites(){
-    //   this.$store.dispatch('main/changeFavorites', this.isFavorite)
-    // }
-  },
+
   watch:{
     checkIfFavorite(){
       this.isFavorite = this.checkIfFavorite
+    },
+    isFavorite(){
+      this.$store.dispatch('main/changeFavorites', this.isFavorite)
     }
   },
-  isFavorite(){
-    this.$store.dispatch('main/changeFavorites', this.isFavorite)
-  }
+
 }
 </script>
 

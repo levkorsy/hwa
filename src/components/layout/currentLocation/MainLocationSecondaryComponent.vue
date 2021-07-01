@@ -2,104 +2,129 @@
   <div class="column">
     <div class="card">
       <div class="card-content">
-        <p class="subtitle">
-          <a :href="item.Link" class="is-link">{{ dayOfWeek }} <span class="is-today-or-tomorrow">{{  checkIfTodayOrTomorrow  }}</span></a>
-        </p>
-        <p class="subtitle">
-          {{ dateFormatted }}
-        </p>
-        <p class="subtitle">
-          {{temperature}}
-        </p>
-        <p class="subtitle">
-          {{ condition }}
-        </p>
-        <p class="subtitle">
-          <icon-component />
-        </p>
+        <div class="day-and-date">
+          <p>
+            <a :href="item.Link" class="is-link">{{ dayOfWeek }} <span
+                class="is-today-or-tomorrow">{{ checkIfTodayOrTomorrow }}</span></a>
+          </p>
+          <p>
+            {{ dateFormatted }}
+          </p>
+        </div>
+        <div class="temperature">
+          <p>{{minTemperature}}</p>
+
+          <p> {{maxTemperature}}</p>
+        </div>
+        <div class="condition">
+          <p>
+            {{ condition }}
+          </p>
+          <p>
+            <icon-component/>
+          </p>
+        </div>
       </div>
     </div>
-</div>
+  </div>
 </template>
 
 <script>
 import moment from "moment"
 import IconComponent from "../UI/IconComponent";
 import {mapState} from "vuex";
+
 export default {
   name: "MainLocationSecondaryComponent",
   components: {IconComponent},
-  props:{
-    item:{
-      type:Object,
+  props: {
+    item: {
+      type: Object,
       required: true
     }
   },
-  computed:{
+  computed: {
     ...mapState('main', ['measureUnits']),
 
-    dayOfWeek(){
+    dayOfWeek() {
       return moment(this.item.Date).format('dddd');
     },
-    dateFormatted(){
+    dateFormatted() {
       return moment(this.item.Date).format('DD/MM/YYYY');
     },
-    temperature(){
-     return this.measureUnits === 'Metric' ? `${this.item.Temperature.Minimum.Value}°${this.item.Temperature.Minimum.Unit} - ${this.item.Temperature.Maximum.Value}°${this.item.Temperature.Maximum.Unit}`
-          : `${this.cToF(this.item.Temperature.Minimum.Value)}°F - ${this.cToF(this.item.Temperature.Maximum.Value)}°F`;
+    maxTemperature() {
+      return this.measureUnits === 'Metric' ? `${this.item.Temperature.Maximum.Value}°${this.item.Temperature.Maximum.Unit}`
+          : `${this.cToF(this.item.Temperature.Maximum.Value)}°F`;
     },
-    condition(){
+    minTemperature() {
+      return this.measureUnits === 'Metric' ? `${this.item.Temperature.Minimum.Value}°${this.item.Temperature.Minimum.Unit}`
+          : `${this.cToF(this.item.Temperature.Minimum.Value)}°F`;
+    },
+    condition() {
       return this.item.Night.IconPhrase
     },
-    checkIfTodayOrTomorrow(){
-      if(moment(this.item.Date).isSame(moment(), 'day')) return '(Today)'
-      if(moment(this.item.Date).isSame(moment().add(1, 'day'), 'day')) return '(Tomorrow)'
+    checkIfTodayOrTomorrow() {
+      if (moment(this.item.Date).isSame(moment(), 'day')) return '(Today)'
+      if (moment(this.item.Date).isSame(moment().add(1, 'day'), 'day')) return '(Tomorrow)'
       return ''
     }
   },
-  methods:{
-    //TODO make mixin
-     cToF(celsius)
-{
-  const cTemp = celsius;
-  const cToFahr = cTemp * 9 / 5 + 32;
-  // const message = `${cTemp}\xB0C is ${cToFahr} \xB0F.`;
-  return cToFahr.toFixed(1)
-  // console.log(message);
-},
+  methods: {
+    cToF(celsius) {
+      const cTemp = celsius;
+      const cToFahr = cTemp * 9 / 5 + 32;
+      return cToFahr.toFixed(1)
+    },
 
- fToC(fahrenheit)
-{
-  const fTemp = fahrenheit;
-  const fToCel = (fTemp - 32) * 5 / 9;
-  const message = `${fTemp}\xB0F is ${fToCel}\xB0C.`;
-  console.log(message);
-}
-}
+    fToC(fahrenheit) {
+      const fTemp = fahrenheit;
+      const fToCel = (fTemp - 32) * 5 / 9;
+      const message = `${fTemp}\xB0F is ${fToCel}\xB0C.`;
+      console.log(message);
+    }
+  }
 }
 </script>
 
 <style scoped>
-@media screen and (min-width: 951px) {
-  .card-content{
-    height: 320px;
+@media screen and (min-width: 1024px) {
+  .card-content {
+    height: 230px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 }
-@media screen and (max-width: 950px) {
-  .card-content{
+
+@media screen and (max-width: 1023px) {
+  .card-content {
     display: flex;
     padding: 0.3rem;
+    justify-content: space-between;
   }
-  .card-content p{
+
+  .card-content p {
     font-size: 15px;
   }
 
 }
-
-.card{
+.card {
   box-shadow: 0 0.5em 1em -0.125em rgb(0 0 0), -1px -2px 0 1px rgb(10 10 10 /2%);
 }
-.is-today-or-tomorrow{
+
+.is-today-or-tomorrow {
   font-size: 13px;
+}
+.temperature{
+  display: flex;
+  flex-direction: column;
+}
+.day-and-date{
+  display: flex;
+  flex-direction: column;
+}
+.condition{
+  display: flex;
+  flex-direction: column;
 }
 </style>

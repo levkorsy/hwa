@@ -55,7 +55,6 @@ export default {
   justify-content: space-between;
 }
 .card{
-  background-color: #a9efe5;
   border: 2px solid black;
   border-radius: 6px; box-shadow: 0 0.5em 1em -0.125em rgb(0 0 0), -1px -2px 0 1px rgb(10 10 10 / 2%);
 }

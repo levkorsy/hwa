@@ -17,7 +17,6 @@ export default {
   },
 methods:{
     async fetchData(){
-     // await this.$store.dispatch('main/getGeoLocation')//TODO check opportunity to put this dispatch in another place
       await this.$store.dispatch('main/getMainLocationData')
       await this.$store.dispatch('main/getMainLocationDataFiveDays')
       await this.$store.dispatch('main/getFavoritesFromLocalStorage')
@@ -25,14 +24,18 @@ methods:{
 },
   mounted() {
     this.fetchData()
-    // this.$store.dispatch('main/getGeoLocation')//TODO check opportunity to put this dispatch in another place
-    // this.$store.dispatch('main/getMainLocationData')
-    // this.$store.dispatch('main/getMainLocationDataFiveDays')
-    // this.$store.dispatch('main/getFavoritesFromLocalStorage')
   }
 }
 </script>
 
 <style scoped>
-
+.container{
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  width: -webkit-fill-available;
+  margin-bottom: auto;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
 </style>
